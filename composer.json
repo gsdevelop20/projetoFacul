@@ -1,0 +1,17 @@
+{
+    "name": "user/projeto-facul",
+    "autoload": {
+        "psr-4": {
+            "User\\ProjetoFacul\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel",
+            "email": "gabrielsantosdesousa20@gmail.com"
+        }
+    ],
+    "require": {
+        "mustache/mustache": "~2.5"
+    }
+}
