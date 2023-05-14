@@ -1,15 +1,18 @@
-$(".btn").click(function(){
+console.log($("#password").val());
+$(".btn").click(function(e){
+    e.preventDefault();
+    console.log($("#password").val());
   $.ajax({
     type: 'post',
-    url: 'data.php',
+    url: 'login.php',
     datatype: 'html',
     data: {
-        num1: $("#i1").val(), 
-        num2: $("#i2").val()
+        email: $("#email").val(),
+        password: $("#password").val()
      }
   }).done(function(data) {
-    $("#r").append(data); 
-
+    $("#r").append(data);
+      console.log(data);
   })
 
 });

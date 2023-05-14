@@ -1,7 +1,10 @@
-<?php  
+<?php
+include 'vendor\mustache\mustache\src\Mustache\Autoloader.php';
 
-$num1 = $_POST['num1'];
-$num2 = $_POST['num2'];
-include 'vendor\mustache\mustache\src\Mustache\Engine.php';
-$m = new Mustache_Engine();
-echo $m->render('Hello, {{planet}}!', ['planet' => 'World']); // "Hello, World!"
+Mustache_Autoloader::register();
+
+$m = new Mustache_Engine(array('loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__) . '/templates'),));
+
+echo $m->render("head", ['title' => 'meu site']); // title
+echo $m->render("navbar", []); // navbar
+
