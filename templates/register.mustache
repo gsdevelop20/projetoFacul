@@ -5,9 +5,18 @@
                 <img src="src/img/login.jpg" class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form method="post" action="login.php" class="" style="margin-top: 6rem">
-                    <h1 class="text-center text-primary mb-3">LOGIN</h1>
-                    <div class='text-danger d-none {{c}} '>Email ou senha incoretos</div>
+
+                <form method="post" action="%20register.php" class="" style="margin-top: 6rem">
+                    <h1 class="text-center text-primary mb-3">CADASTRO</h1>
+                    <div class='text-danger d-none {{c}}'>Algo ocorreu ao cadastrar o usuário</div>
+
+                    <!-- Email input -->
+                    <div class="form-outline" style="margin-top: 0;">
+                        <input type="text" id="name" name="name" required class="form-control {{b}} form-control-lg"
+                               placeholder="Nome" />
+                        <label class="form-label" for="form3Example3">Nome</label>
+                    </div>
+
                     <!-- Email input -->
                     <div class="form-outline" style="margin-top: 0;">
                         <input type="email" id="email" name="email" required class="form-control {{b}} form-control-lg"
@@ -36,8 +45,8 @@
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="submit" class="btn btn-primary btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">ENTRAR</button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Não tem uma conta? <a href="%20register.php"
-                                                                                          class="link-danger">Cadastre</a></p>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Já possui uma conta? <a href="login.php"
+                                                                                      class="link-danger">Login</a></p>
                     </div>
 
                 </form>
@@ -45,9 +54,3 @@
         </div>
     </div>
 </section><!-- Pills content -->
-
-<script>
-
-
-
-</script>
