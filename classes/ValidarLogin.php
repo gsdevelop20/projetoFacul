@@ -13,13 +13,13 @@ class ValidarLogin{
     public function validar(){
         $dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
         mysqli_select_db($dbconection,'notes');
-        $sql ="select id_user, user_nome, use_Email, user_Senha from users";
+        $sql ="select id_user, user_name, user_email, user_password from users";
         $res = mysqli_query($dbconection,$sql);
 
         while($rows = mysqli_fetch_array($res)) {
-            $emails[] = $rows['use_Email'];
-            $senhas[] = $rows['user_Senha'];
-            $name[] = $rows['user_nome'];
+            $emails[] = $rows['user_email'];
+            $senhas[] = $rows['user_password'];
+            $name[] = $rows['user_name'];
             $id[] = $rows['id_user'];
         }
 

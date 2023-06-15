@@ -19,7 +19,7 @@ class Notas{
 
         $dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
         mysqli_select_db($dbconection,'notes');
-        $sql ="insert into note (id_user, note_title, note_description,note) values
+        $sql ="insert into note (id_user, note_title, note_description,note_content) values
         ('$user_id','$this->notas_title','$this->notas_description','$this->notas_content')";
 
         if (mysqli_query($dbconection, $sql)) {
@@ -28,17 +28,32 @@ class Notas{
         return false;
     }
 
-    public function updateNotes($tile,$note){
-        session_start();
-        $id = $_SESSION['id_note1'];
+    public function updateNotes($title,$note,$id_note){
+
+
         $dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
         mysqli_select_db($dbconection,'notes');
-        $sql ="UPDATE note SET note_title = '$tile', note = '$note' where id_note ='$id'";
+        $sql ="UPDATE note SET note_title = '$title', note_content = '$note' where id_note ='$id_note'";
 
         if (mysqli_query($dbconection, $sql)) {
             return true;
         }
         return false;
+
+
+    }
+
+    public function deleteNota($id_note){
+        $dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
+        mysqli_select_db($dbconection,'notes');
+
+        $sql ="DELETE FROM note WHERE id_note ='$id_note';";
+
+        if (mysqli_query($dbconection, $sql)) {
+            return true;
+        }else {
+            return false;
+        }
 
     }
 

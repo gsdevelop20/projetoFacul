@@ -1,5 +1,5 @@
 console.log($("#password").val());
-$(".btn").click(function(){
+$(".save2").click(function(){
 
   $.ajax({
     type: 'post',
@@ -25,7 +25,7 @@ $("#more").click(function(){
         type: 'post',
         url: 'index.php',
         data:{
-            'more': 'create'
+            'more': 1,
         },
 
         error: function(jqXHR, textStatus, errorThrown) {
@@ -35,5 +35,42 @@ $("#more").click(function(){
         $("#r").append(data);
         console.log(data);
     })
-
 });
+
+    $(".create").click(function(){
+
+        $.ajax({
+            type: 'post',
+            url: 'index.php',
+            data:{
+                'notes': $("#textarea1").val(),
+                'titles':$("#title1").val(),
+            },
+
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus)
+            }
+        }).done(function(data) {
+            $("#r").append(data);
+            console.log(data);
+        })
+       // window.location.href = '../../index.php';
+    });
+
+$( document ).ready(function() {
+    console.log("ready!");
+
+    $.ajax({
+        type: 'post',
+        url: 'ajax.php',
+        data:{
+            'oi':'oi'
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus)
+        }
+    }).done(function (data) {
+        $("#r").append(data);
+        console.log('oi');
+    })
+})

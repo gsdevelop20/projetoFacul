@@ -16,7 +16,7 @@ class Register{
 
         $dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
         mysqli_select_db($dbconection,'notes');
-        $sql ="insert into users (user_nome,  use_Email, user_Senha) values
+        $sql ="insert into users (user_name,  user_email, user_password) values
         ('$this->user_name','$this->user_email','$this->user_password')";
 
         if (mysqli_query($dbconection, $sql)) {
