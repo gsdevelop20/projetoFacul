@@ -17,7 +17,7 @@ class Notas{
         session_start();
         $user_id = $_SESSION['user_id'];
 
-        $dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
+        $dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
         mysqli_select_db($dbconection,'notes');
         $sql ="insert into note (id_user, note_title, note_description,note_content) values
         ('$user_id','$this->notas_title','$this->notas_description','$this->notas_content')";
@@ -31,7 +31,7 @@ class Notas{
     public function updateNotes($title,$note,$id_note){
 
 
-        $dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
+        $dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
         mysqli_select_db($dbconection,'notes');
         $sql ="UPDATE note SET note_title = '$title', note_content = '$note' where id_note ='$id_note'";
 
@@ -44,7 +44,7 @@ class Notas{
     }
 
     public function deleteNota($id_note){
-        $dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
+        $dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
         mysqli_select_db($dbconection,'notes');
 
         $sql ="DELETE FROM note WHERE id_note ='$id_note';";

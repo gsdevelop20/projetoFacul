@@ -11,7 +11,7 @@ class ValidarLogin{
     }
 
     public function validar(){
-        $dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
+        $dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
         mysqli_select_db($dbconection,'notes');
         $sql ="select id_user, user_name, user_email, user_password from users";
         $res = mysqli_query($dbconection,$sql);

@@ -1,5 +1,5 @@
 <?php
-include 'vendor\mustache\mustache\src\Mustache\Autoloader.php';
+include 'vendor/mustache/mustache/src/Mustache/Autoloader.php';
 include 'classes/ValidarLogin.php';
 
 session_start();

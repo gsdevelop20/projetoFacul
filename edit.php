@@ -1,5 +1,5 @@
 <?php
-include 'vendor\mustache\mustache\src\Mustache\Autoloader.php';
+include 'vendor/mustache/mustache/src/Mustache/Autoloader.php';
 include 'classes/Notas.php';
 
 Mustache_Autoloader::register();
@@ -45,16 +45,17 @@ if(isset($_GET['action'])){
 
 
 
-$dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
+$dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
 mysqli_select_db($dbconection,'notes');
 $sql ="select id_note, note_title, note_description, note_content from note where  id_user = '$user_id' and id_note = '$id_note'";
 $res = mysqli_query($dbconection,$sql);
 
 $note_content = [];
+$id_note = [];
 while($rows = mysqli_fetch_array($res)) {
     $note_title[] = $rows['note_title'];
     $note_content[] = $rows['note_content'];
-    //$id_note[] = $rows['id_note'];
+    $id_note[] = $rows['id_note'];
 
 }
 

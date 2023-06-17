@@ -1,4 +1,9 @@
 
 <div class="container  d-flex justify-content-between">
+    {{#items}}
         {{> cards }}
+    {{/items}}
+    {{^items}}
+        Nenhum registro encontrado.
+    {{/items}}
 </div>

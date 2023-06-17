@@ -1,6 +1,6 @@
 
 <?php
-include 'vendor\mustache\mustache\src\Mustache\Autoloader.php';
+include 'vendor/mustache/mustache/src/Mustache/Autoloader.php';
 include 'classes/Notas.php';
 session_start();
 
@@ -38,7 +38,7 @@ if(isset($_GET['id_note'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-$dbconection = mysqli_connect('localhost','root','1234') or die('erro de conexão');
+$dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
 mysqli_select_db($dbconection,'notes');
 $sql ="select id_note, note_title, note_description, note_content from note where  id_user = '$user_id' order by id_note desc ";
 $res = mysqli_query($dbconection,$sql);
@@ -68,14 +68,14 @@ if(isset($_POST['notes'])){
     $save = new Notas($title1,null,$data1);
 
     if($save->insertResgister()){
-        header('Location: index.php');
+        header("Refresh: 0; url=index.php");
     }else {
 
     }
     }
-
-
+  
 for($i = 0; $i<sizeof($note_content); $i++){
+    $items=[];   
     if(!is_null($note_content[$i])){
 
         $context=[
@@ -89,10 +89,11 @@ for($i = 0; $i<sizeof($note_content); $i++){
         if(isset($_GET['id_note'])){
             $context['hidden'] = '';
         }
-
-        echo $m->render("index",$context);
-    }
+        $items[] = $context;
+	}
+ echo $m->render("index", ['items' => $items]);         
 }
+
 echo $m->render("js",[]);
 
 //echo $m->render("index",['cards'=>$t, 'note'=>$g]); // "Hello, World!"
