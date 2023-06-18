@@ -1,4 +1,5 @@
 <?php
+include ('classes/Database.php');
 include 'vendor/mustache/mustache/src/Mustache/Autoloader.php';
 include 'classes/Notas.php';
 
@@ -45,8 +46,9 @@ if(isset($_GET['action'])){
 
 
 
-$dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
-mysqli_select_db($dbconection,'notes');
+$user_id = $_SESSION['user_id'];
+$DB = new Database();
+$dbconection = $DB->conectDB();
 $sql ="select id_note, note_title, note_description, note_content from note where  id_user = '$user_id' and id_note = '$id_note'";
 $res = mysqli_query($dbconection,$sql);
 

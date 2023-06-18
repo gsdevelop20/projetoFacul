@@ -1,5 +1,5 @@
-
 <?php
+include ('classes/Database.php');
 include 'vendor/mustache/mustache/src/Mustache/Autoloader.php';
 include 'classes/Notas.php';
 session_start();
@@ -25,8 +25,6 @@ if(isset($_GET['id_note'])) {
 
         if ($nota->updateNotes($title, $data, $id)) {
             echo 'toooop';
-        } else {
-
         }
 
         unset($_POST['note']);
@@ -38,8 +36,9 @@ if(isset($_GET['id_note'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-$dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
-mysqli_select_db($dbconection,'notes');
+$data = new Database();
+$dbconection = $data->conectDB();
+
 $sql ="select id_note, note_title, note_description, note_content from note where  id_user = '$user_id' order by id_note desc ";
 $res = mysqli_query($dbconection,$sql);
 
@@ -72,7 +71,7 @@ if(isset($_POST['notes'])){
     }else {
 
     }
-    }
+}
   
 for($i = 0; $i<sizeof($note_content); $i++){
     $items=[];   

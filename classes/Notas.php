@@ -16,9 +16,8 @@ class Notas{
     public function insertResgister(){
         session_start();
         $user_id = $_SESSION['user_id'];
-
-        $dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
-        mysqli_select_db($dbconection,'notes');
+        $DB = new Database();
+        $dbconection = $DB->conectDB();
         $sql ="insert into note (id_user, note_title, note_description,note_content) values
         ('$user_id','$this->notas_title','$this->notas_description','$this->notas_content')";
 
@@ -30,9 +29,8 @@ class Notas{
 
     public function updateNotes($title,$note,$id_note){
 
-
-        $dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
-        mysqli_select_db($dbconection,'notes');
+        $DB = new Database();
+        $dbconection = $DB->conectDB();
         $sql ="UPDATE note SET note_title = '$title', note_content = '$note' where id_note ='$id_note'";
 
         if (mysqli_query($dbconection, $sql)) {
@@ -44,8 +42,8 @@ class Notas{
     }
 
     public function deleteNota($id_note){
-        $dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
-        mysqli_select_db($dbconection,'notes');
+        $DB = new Database();
+        $dbconection = $DB->conectDB();
 
         $sql ="DELETE FROM note WHERE id_note ='$id_note';";
 

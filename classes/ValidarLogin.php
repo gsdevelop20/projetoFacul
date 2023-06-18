@@ -1,5 +1,5 @@
 <?php
-
+include ('Database.php');
 class ValidarLogin{
     private $email;
     private $senha;
@@ -11,8 +11,9 @@ class ValidarLogin{
     }
 
     public function validar(){
-        $dbconection = mysqli_connect('localhost','root','93428521Ga@') or die('erro de conexão');
-        mysqli_select_db($dbconection,'notes');
+        $DB = new Database();
+        $dbconection = $DB->conectDB();
+
         $sql ="select id_user, user_name, user_email, user_password from users";
         $res = mysqli_query($dbconection,$sql);
 
