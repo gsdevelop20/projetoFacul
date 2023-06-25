@@ -5,19 +5,20 @@
         <div class="card mw-100" id="{{id}}">
             <div class="card-header mw-100" id="headingOne">
                 <div class="mb-0 mw-100 d-flex justify-content-between align-items-center">
-                    <input type="text" id="title1" value="{{title}}" style="border: none; outline: none; width: 25%;" >
+                    <div class="d-flex align-center-center">
+                        <input type="text" id="title1" value="{{title}}" style="border: none; outline: none; width: 80%;" >
+                        <i class="mt-1 ml-1 mr-2 fa-solid fa-pen-to-square"></i>
+                    </div>
                     <div>
                         <a class="btn btn-primary {{save}}" href="{{index}}" id="save">
                             Salvar
                         </a>
-                        <a class="btn btn-primary" id="view"  data-toggle="collapse" data-target="#collapseOne{{id}}" aria-expanded="true" aria-controls="{{id}}">
-                            Visualizar
-                        </a>
+
                     </div>
                 </div>
             </div>
 
-            <div id="collapseOne{{id}}" class="collapse  mw-100" aria-labelledby="{{id}}" data-parent="#accordion">
+            <div id="collapseOne" class="mw-100" aria-labelledby="" data-parent="#accordion">
                 <div class="card-body">
                     <div class=" w-100 ">
                         <textarea class="form-control" id="textarea1" style="border: none; resize: none; outline: 0" rows="10">{{note}}</textarea>

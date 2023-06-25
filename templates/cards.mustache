@@ -8,9 +8,6 @@
                     <a class="btn btn-primary edit {{save}}" href="{{url}}{{create}}" id="save">
                         Editar
                     </a>
-                    <a class="btn btn-primary {{hidden}} save2 {{save}}" href="{{url}}{{create}}" id="save">
-                        Salvar
-                    </a>
                     <a class="btn btn-primary"  href="{{url}}" id="view"  data-toggle="collapse" data-target="#collapseOne{{id}}" aria-expanded="true" aria-controls="{{id}}">
                         Visualizar
                     </a>
@@ -21,7 +18,7 @@
         <div id="collapseOne{{id}}" class="collapse  mw-100" aria-labelledby="{{id}}" data-parent="#accordion">
             <div class="card-body">
                 <div class=" w-100 ">
-                    <textarea class="form-control" id="textarea" style="border: none; resize: none; outline: 0" rows="10">{{note}}</textarea>
+                    <textarea class="form-control" disabled id="textarea" style="border: none; resize: none; outline: 0" rows="10">{{note}}</textarea>
                 </div>
 
             </div>

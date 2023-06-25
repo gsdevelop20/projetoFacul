@@ -72,11 +72,10 @@ if(isset($_POST['notes'])){
 
     }
 }
-  
+$items = [];
 for($i = 0; $i<sizeof($note_content); $i++){
     $items=[];   
     if(!is_null($note_content[$i])){
-
         $context=[
             'note' =>   $note_content[$i],
             'title' =>   $note_title[$i],
@@ -90,7 +89,7 @@ for($i = 0; $i<sizeof($note_content); $i++){
         }
         $items[] = $context;
 	}
- echo $m->render("index", ['items' => $items]);         
+    echo $m->render("index", ['items' => $items]);
 }
 
 echo $m->render("js",[]);

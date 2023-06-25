@@ -61,16 +61,15 @@ $( document ).ready(function() {
     console.log("ready!");
 
     $.ajax({
-        type: 'post',
+        type: 'GET',
         url: 'ajax.php',
         data:{
-            'oi':'oi'
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus)
         }
     }).done(function (data) {
         $("#r").append(data);
-        console.log('oi');
+        console.log(data);
     })
 })

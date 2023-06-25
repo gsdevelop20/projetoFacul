@@ -27,5 +27,55 @@
         </ul>
         
     </div>
-    <a class="btn btn-outline-danger ml-auto" href="login.php">Sair</a>
+    <a class="btn btn-outline-danger d-none ml-auto" href="login.php">Sair</a>
+    <div class="userToggler border btn btn-outline-primary">
+        <i class="fa-solid fa-user" ></i>
+    </div>
+    <div class="userToggler-active d-none">
+        <div class="">
+            <a class="dropdown-item" href="#">Ação</a>
+            <a class="dropdown-item" href="#">Outra ação</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-danger" href="login.php">Sair</a>
+        </div>
+    </div>
 </nav>
+
+<style>
+    .userToggler{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-width: 80px;
+        cursor: pointer;
+    }
+    .userToggler-active{
+        background-color: #848484;
+        position: absolute;
+        top: 53px;
+        right: 20px;
+        background-color: white;
+        transition:2s ;
+    }
+    nav{
+        border-bottom: 4px solid dodgerblue;
+    }
+</style>
+
+<script>
+    $(".userToggler").click(function(){
+        if ($(".userToggler-active").hasClass("d-none")) {
+            $(".userToggler-active").removeClass("d-none")
+            $(".userToggler-active").addClass("d-block")
+        }else{
+            $(".userToggler-active").removeClass("d-block")
+            $(".userToggler-active").addClass("d-none")
+        }
+
+    });
+
+
+</script>
